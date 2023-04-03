@@ -17,8 +17,7 @@ function StaffManagement() {
         }
         return salary
     },
-    this.rankWork = '',
-    this.findStaff = function() {
+    this.rankWork = function() {
         htmlOutput = ''
         if (this.hourWork < 160) {
             htmlOutput = 'Nhân viên trung bình'

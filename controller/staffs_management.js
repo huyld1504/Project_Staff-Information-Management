@@ -1,11 +1,24 @@
+var arrStaff = []
+
 document.querySelector('#myModal').onsubmit = function (event) {
     event.preventDefault()
-    console.log(123)
+    //console.log(123)
 
     var staff = new StaffManagement() 
     staff.account = document.querySelector('#tknv').value
     staff.fullName = document.querySelector('#name').value
     staff.email = document.querySelector('#email').value
     staff.password = document.querySelector('#password').value
-    staff.dAY
+    staff.day = document.querySelector('#datepicker').value
+    staff.salarySimple = +document.querySelector('#luongCB').value
+    staff.positionWork = document.querySelector('#chucvu').value
+    staff.hourWork = +document.querySelector('#gioLam').value
+
+    // console.log(staff)
+    arrStaff.push(staff)
+    console.log('array Staff',arrStaff)
+    renderStaff(arrStaff)
+    
+     var validation = true 
 }
+
