@@ -1,3 +1,3 @@
 function Staff() {
-    
+    this.fullName = '',
 }
