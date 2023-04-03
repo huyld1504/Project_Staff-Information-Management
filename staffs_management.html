@@ -179,7 +179,7 @@
 
 
     <!-- The Modal -->
-    <div class="modal fade" id="myModal">
+    <form class="modal fade" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
 
@@ -273,9 +273,9 @@
                                 </div>
                                 <select class="form-control" id="chucvu">
                                     <option>Chọn chức vụ</option>
-                                    <option>Sếp</option>
-                                    <option>Trưởng phòng</option>
-                                    <option>Nhân viên</option>
+                                    <option value="Sep">Sếp</option>
+                                    <option value="Truong phong">Trưởng phòng</option>
+                                    <option value="Nhan vien">Nhân viên</option>
                                 </select>
                             </div>
 
@@ -298,14 +298,14 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer" id="modal-footer">
-                    <button id="btnThemNV" type="button" class="btn btn-success">Thêm người dùng</button>
+                    <button id="btnThemNV" type="submit" class="btn btn-success">Thêm người dùng</button>
                     <button id="btnCapNhat" type="button" class="btn btn-success">Cập nhật</button>
                     <button id="btnDong" type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 </div>
 
             </div>
         </div>
-    </div>
+    </form>
 
 
     <!-- Bootstrap -->
