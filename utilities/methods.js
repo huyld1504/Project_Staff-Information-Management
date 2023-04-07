@@ -17,7 +17,10 @@ function renderStaff (arrayStaff) {
             <td>${staff.salary()}</td>
             <td>${staff.rankWork()}</td>
             <td>
-                <button class="btn btn-danger" id="btn_delete_staff" onclick="deleteStaff('${i}')">Delete</button>
+                <button class="btn btn-danger" id="btn_delete_staff" onclick="deleteStaff('${i}')">X</button>
+                <button class="btn btn-success" id="btn_change_staff")">
+                    Chinh sua
+                </button>
             </td>
         </tr>
         `
@@ -33,6 +36,8 @@ function deleteStaff(indexStaff) {
     arrStaff.splice(indexStaff,1)
     renderStaff(arrStaff)
 }
+
+
 
 //============================Validation==========================\\
 
