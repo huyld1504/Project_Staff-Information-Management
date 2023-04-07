@@ -16,14 +16,17 @@ document.querySelector('#myModal').onsubmit = function (event) {
 
     // console.log(staff)
     arrStaff.push(staff)
+    saveLocalStorage()
     console.log('array Staff', arrStaff)
     renderStaff(arrStaff)
 
     var validation = true
 }
-document.querySelector('#btn_change_staff').onclick = function {
-    
-}
+// document.querySelector('#btn_change_staff').onclick = function {
+//     if (9) {
+        
+//     }
+// }
 document.querySelector('#btnCapNhat').onclick = function () {
     var staffChange = new StaffManagement()
     staffChange.account = document.querySelector('#tknv').value

@@ -28,6 +28,11 @@ function renderStaff (arrayStaff) {
     }
 }
 
+function saveLocalStorage () {
+    var saveArrStaff = JSON.stringify(arrStaff)
+    localStorage.setItem('Array Staff',saveArrStaff)
+}
+
 /**
  * Hàm dủng để xóa một nhân viên bất kì do sai sót hoặc lỗi
  * @param {*} indexStaff số thứ tự cần xóa
@@ -41,12 +46,3 @@ function deleteStaff(indexStaff) {
 
 //============================Validation==========================\\
 
-function validationAccount(value,name,minLength,maxLength) {
-    if (value.trim()<minLength || value.trim() > maxLength) {
-     document.querySelector('#tbTKNV').innerHTML = 'Vui lòng nhập tài khoản'
-     return true
-    } else {
-     document.querySelector('#tbTKNV').innerHTML = ''
-     return false
-    }
- }
