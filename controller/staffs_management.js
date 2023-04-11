@@ -13,12 +13,28 @@ document.querySelector('#myModal').onsubmit = function (event) {
     staff.positionWork = document.querySelector('#chucvu').value
     staff.hourWork = +document.querySelector('#gioLam').value
 
+    // var valid = true
+    // {
+    //     valid = checkEmpty(staff.account, 'account', 'Tài khoản')
+    //         & checkEmpty(staff.fullName, 'fullName', 'Tên nhân viên')
+    //         & checkEmpty(staff.email, 'email', 'Email')
+    //         & checkEmpty(staff.day, 'day', 'Ngày tháng')
+    //         & checkEmpty(staff.salarySimple, 'salarySimple', 'Lương cơ bản')
+    //         & checkEmpty(staff.hourWork, 'hourWork', 'Giờ làm')
+    //         & checkEmpty(staff.password, 'password', 'Mật khẩu');
+    // }
+    // valid = checkEmail(staff.email, 'email', 'Email')
+
+    // if (!valid) {
+    //     return
+    // }
     // console.log(staff)
+
     arrStaff.push(staff)
     saveLocalStorage()
     console.log('array Staff', arrStaff)
     renderStaff(arrStaff)
-    
+
 
 }
 
@@ -48,6 +64,7 @@ document.querySelector('#btnCapNhat').onclick = function () {
         arrStaff[updateIndex].positionWork = updateStaff.positionWork
         arrStaff[updateIndex].hourWork = updateStaff.hourWork
     }
+
     renderStaff(arrStaff)
     saveLocalStorage()
     document.querySelector('#tknv').disabled = false
@@ -57,7 +74,7 @@ document.querySelector('#btnCapNhat').onclick = function () {
 
 
 
-getLocalStorage()
+//getLocalStorage()
 
 
 /**
@@ -77,7 +94,7 @@ function renderStaff(arrayStaff) {
             <td>${staff.day}</td>
             <td>${staff.positionWork}</td>
             <td>${staff.salary()}</td>
-            <td>${staff.rankWork()}</td>
+            <td id="rank">${staff.rankWork()}</td>
             <td>
                 <button class="btn btn-danger" id="btn_delete_staff" onclick="deleteStaff('${i}')">X</button>
                 <button class="btn btn-success" id="btn_change_staff")" onclick="fixStaff('${staff.account}')">
@@ -119,4 +136,22 @@ function fixStaff(account) {
         document.querySelector('#gioLam').value = arrStaff[indexFix].hourWork
     }
     document.querySelector('#tknv').disabled = true
+}
+
+document.querySelector('#searchName').oninput = function () {
+    //console.log('abc');
+
+    var key_Word = document.querySelector('#searchName').value.trim()
+    key_Word = stringToSlug(key_Word)
+    var arrStaffFind = []
+    for (var i = 0; i < arrStaff.length; i++) {
+        //Mỗi lần duyệt lấy ra 1 sinh viên 
+        var staff = arrStaff[i]
+        var rankWork = document.querySelector('#rank').value
+        if (stringToSlug(rankWork.trim()).search(key_Word) !== -1) {
+            //Tìm ra tenSinhVien nào chứa từ khóa thì đưa object  sinh viên đó vào mản tìm kiếm
+            arrStaffFind.push(staff)
+        }
+    }
+    renderStaff(arrStaffFind)
 }
